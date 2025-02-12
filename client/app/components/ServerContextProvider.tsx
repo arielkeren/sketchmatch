@@ -15,7 +15,7 @@ const ServerContextProvider: React.FC<Props> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const socket = io("ws://localhost:8080");
+    const socket = io(process.env.NEXT_PUBLIC_SERVER_URL!);
 
     socket.on("connect", () => {
       setServer(socket);
